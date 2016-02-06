@@ -18,8 +18,6 @@ def word_freq():
 
     sorted_word_dict = sorted(word_dict.items(), key=operator.itemgetter(1), reverse=True)
 
-#    for word in sorted_word_dict[:19]:
-#        print(str(word).replace('(', '').replace(')', '').replace("'", "").replace(',', ''))
     high_num = [item[1] for item in sorted_word_dict]
 
     if high_num[0] > 50:
@@ -27,8 +25,11 @@ def word_freq():
     else:
         hist_ratio = 1
 
-    for w in sorted_word_dict[:19]:
-        print(w[0], "#" * int(w[1] * hist_ratio))
+    for w in sorted_word_dict[:20]:
+        if len(w[0]) < 10:
+            print(w[0] + "\t\t", "#" * int(w[1] * hist_ratio))
+        else:
+            print(w[0] + "\t", "#" * int(w[1] * hist_ratio))
 
 
 word_freq()
